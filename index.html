@@ -1,16 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Snake</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samba | Portfolio</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background: #020617;
+    padding: 15px;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  header {
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  header h1 {
+    font-size: 40px;
+  }
+
+  section {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: auto;
+  }
+
+  .card {
+    background: #1e293b;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: #020617;
+    margin-top: 40px;
+  }
+</style>
 </head>
+
 <body>
-  <canvas id="canvas"></canvas>
-  <script src="render.js"></script><!-- defines canvas, ctx, draw() -->
-  <script src="input.js"></script><!-- attaches keyboard + touch listeners -->
-  <script src="game.js"></script> <!-- state, loop, boot -->
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<header id="home">
+  <h1>Hi, I'm Samba 👋</h1>
+  <p>Web Developer | Learning & Building Cool Things</p>
+</header>
+
+<section id="about">
+  <h2>About Me</h2>
+  <div class="card">
+    <p>
+      I'm a beginner web developer passionate about creating websites.
+      I'm learning HTML, CSS, and JavaScript and building my portfolio step by step.
+    </p>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="card">
+    <h3>My First Website</h3>
+    <p>A simple website I built using HTML and CSS.</p>
+  </div>
+
+  <div class="card">
+    <h3>Portfolio Website</h3>
+    <p>This is my personal portfolio hosted online.</p>
+  </div>
+
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="card">
+    <p>Email: sambajawo@example.com</p>
+    <p>Phone: +220 XXX XXX</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Samba. All rights reserved.</p>
+</footer>
 
 </body>
-</html>
+  </html>
