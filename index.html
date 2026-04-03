@@ -7,74 +7,98 @@
 
 <style>
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0f172a;
-  color: white;
+  
+
+<!-- ===================== -->
+<!-- Floating Buttons + Projects Section -->
+<!-- ===================== -->
+
+<!-- 1️⃣ Floating Buttons -->
+<a href="https://wa.me/your-number" class="floating-button whatsapp-button">
+  Chat me on WhatsApp
+</a>
+
+<a href="#projects" class="floating-button work-button">
+  View My Work
+</a>
+
+<!-- 2️⃣ Projects Section -->
+<section id="projects">
+  <h2>My Projects</h2>
+  <div class="project-card">Project 1</div>
+  <div class="project-card">Project 2</div>
+  <div class="project-card">Project 3</div>
+</section>
+
+<!-- ===================== -->
+<!-- 3️⃣ CSS (Add inside <style> in <head> or CSS file) -->
+<!-- ===================== -->
+
+<style>
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
-/* NAVBAR */
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  background: #020617;
-  padding: 15px;
-  position: sticky;
-  top: 0;
-}
-
-nav a {
-  color: #38bdf8;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-nav a:hover {
-  color: white;
-}
-
-/* HERO */
-.hero {
-  text-align: center;
-  padding: 80px 20px;
-}
-
-.hero h1 {
-  font-size: 40px;
-}
-
-.hero span {
-  color: #38bdf8;
-}
-
-.hero p {
-  max-width: 500px;
-  margin: 10px auto;
-  opacity: 0.8;
-}
-
-/* BUTTON */
-.btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: #38bdf8;
-  color: white;
-  border-radius: 5px;
-  text-decoration: none;
-}
-
-/* WHATSAPP BUTTON */
-.whatsapp-btn {
+/* Floating button common style */
+.floating-button {
   position: fixed;
-  bottom: 20px;
   right: 20px;
-  padding: 12px 15px;
-  background: green;
+  padding: 12px 20px;
+  border-radius: 50px;
   color: white;
+  font-weight: bold;
   text-decoration: none;
-  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s, transform 0.3s;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* WhatsApp button */
+.whatsapp-button {
+  bottom: 20px;
+  background-color: #25D366; /* WhatsApp green */
+}
+
+.whatsapp-button:hover {
+  background-color: #1DA851;
+}
+
+/* View My Work button */
+.work-button {
+  bottom: 80px; /* above WhatsApp button */
+  background-color: #2563eb; /* blue */
+  animation: bounce 2s infinite;
+}
+
+.work-button:hover {
+  background-color: #1d4ed8;
+  transform: scale(1.1);
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Projects Section styling */ bdy
+#projects {
+  padding-top: 80px; /* if header covers it */
+  margin-top: -80px; /* offset for fixed header */
+}
+
+.project-card {
+  background: #1e293b;
+  color: white;
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 10px;
+}
+</style>
   <section id="hero"> 
   <div class="hero-content">
     <h1>I Build Modern Websites 🚀</h1>
@@ -83,7 +107,7 @@ nav a:hover {
   </div>
 
   <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/220XXXXXXXX" class="whatsapp-btn" target="_blank">💬</a>
+  <a href="https://wa.me/2207597080" class="whatsapp-btn" target="_blank">💬</a>
 </section>
 }
 
@@ -163,10 +187,6 @@ footer {
   </p>
 </section>
 
-<!-- WHATSAPP BUTTON -->
-<a href="https://wa.me/2207597080" class="whatsapp-btn">
-  Chat me on WhatsApp
-</a>
 
 <!-- ABOUT -->
 <section id="about">
