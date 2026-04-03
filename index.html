@@ -1,62 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Samba | Web Developer</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samba | Web Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* GENERAL STYLES */
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+    scroll-behavior: smooth;
+  }
+
+  /* NAVBAR */
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 15px;
+    background: rgba(2, 6, 23, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+  }
+  nav a { color: white; text-decoration: none; font-weight: bold; transition: 0.3s; }
+  nav a:hover { color: #38bdf8; }
+
+  /* BUTTON */
+  .btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+    color: black;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 25px;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  }
+  .btn:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+    color: white;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  }
+
+  /* SECTIONS */
+  section { padding: 100px 20px; text-align: center; position: relative; }
+  section h1, section h2 { margin-bottom: 20px; }
+
+  /* HERO ANIMATION */
+  #home h1 { font-size: 3em; animation: fadeInDown 1s ease-out; }
+  #home p {
+    font-size: 1.3em;
+    max-width: 700px;
+    margin: 0 auto 20px;
+    animation: fadeInUp 1s ease-out 0.5s forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeInDown { from {opacity:0; transform:translateY(-40px);} to {opacity:1; transform:translateY(0);} }
+  @keyframes fadeInUp { from {opacity:0; transform:translateY(40px);} to {opacity:1; transform:translateY(0);} }
+
+  /* PROJECTS */
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: auto;
+  }
+  .card {
+    display: block;
+    background: rgba(30,41,59,0.8);
+    padding: 25px;
+    border-radius: 15px;
+    text-decoration: none;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transition: 0.4s;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  .card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.6s ease-out;
+  }
+  .card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+    background: rgba(39,52,73,0.95);
+  }
+
+  /* SKILLS */
+  .skills span {
+    display: inline-block;
+    background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+    color: black;
+    padding: 10px 15px;
+    margin: 7px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: transform 0.3s, opacity 0.6s;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .skills span.visible { opacity:1; transform:translateY(0); }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 25px;
+    background: rgba(2, 6, 23, 0.9);
+    margin-top: 40px;
+    backdrop-filter: blur(5px);
+  }
+
+  /* WhatsApp Floating Button */
+  .whatsapp-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #25D366;
+    color: white;
+    font-size: 32px;
+    padding: 16px 20px;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+    transition: 0.3s;
+    z-index: 1000;
+    text-decoration: none;
+  }
+  .whatsapp-btn:hover { transform: translateY(-5px) scale(1.1); background: #128C7E; }
+</style>
 </head>
 <body>
 
   <!-- NAVBAR -->
   <nav>
     <a href="#home">Home</a>
-    <a href="#about">About</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
   </nav>
 
-  <!-- HERO / INTRO -->
+  <!-- HERO SECTION -->
   <section id="home">
-    <h1>I Build Modern Websites <span>🚀</span></h1>
+    <h1>I Build Modern Websites 🚀</h1>
     <p>I help small businesses and individuals create fast, responsive, and professional websites that attract customers and increase sales.</p>
-    <a href="#projects" class="btn"><i class="fas fa-eye"></i> View My Work</a>
+    <a href="#projects" class="btn">View My Work</a>
   </section>
 
-  <!-- ABOUT ME -->
-  <section id="about">
-    <h2><i class="fas fa-user"></i> About Me</h2>
-    <p>I'm a motivated web developer from The Gambia, focused on creating clean, responsive, and user-friendly websites. I enjoy learning new technologies and improving my skills every day. My goal is to work on real-world projects and help businesses grow online.</p>
-    <a href="#contact" class="btn"><i class="fas fa-briefcase"></i> Hire Me</a>
-  </section>
-
-  <!-- PROJECTS -->
+  <!-- PROJECTS SECTION -->
   <section id="projects">
-    <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+    <h2>Projects</h2>
     <div class="projects">
-      <a href="https://bachjawo11-beep.github.io/My-portfolio-/" target="_blank" class="card">
-        <h3><i class="fas fa-laptop-code"></i> Portfolio Website</h3>
-        <p>My personal portfolio showcasing my skills and projects.</p>
-      </a>
-      <a href="#" class="card">
-        <h3><i class="fas fa-calculator"></i> Calculator App</h3>
-        <p>A simple calculator built using HTML, CSS, and JavaScript.</p>
-      </a>
-      <a href="#" class="card">
-        <h3><i class="fas fa-columns"></i> Landing Page</h3>
-        <p>A modern responsive landing page design.</p>
-      </a>
+      <a href="#" class="card"> <h3>Portfolio Website</h3> <p>My personal portfolio showcasing my skills and projects.</p> </a>
+      <a href="#" class="card"> <h3>Calculator App</h3> <p>A simple calculator built using HTML, CSS, and JavaScript.</p> </a>
+      <a href="#" class="card"> <h3>Landing Page</h3> <p>A modern responsive landing page design.</p> </a>
     </div>
   </section>
 
-  <!-- SKILLS -->
+  <!-- SKILLS SECTION -->
   <section id="skills">
-    <h2><i class="fas fa-code"></i> Skills</h2>
+    <h2>Skills</h2>
     <div class="skills">
       <span>HTML</span>
       <span>CSS</span>
@@ -64,152 +178,40 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT SECTION -->
   <section id="contact">
-    <h2><i class="fas fa-envelope"></i> Contact Me</h2>
+    <h2>Contact Me</h2>
     <p>Email: <a href="mailto:bachjawo11@gmail.com">bachjawo11@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/bachjawo11-beep/My-portfolio" target="_blank">My Portfolio</a></p>
-    <a href="mailto:bachjawo11@gmail.com" class="btn"><i class="fas fa-paper-plane"></i> Send Email</a>
+    <p>GitHub: <a href="https://github.com/bachjawo11/My-portfolio-">My Portfolio</a></p>
+    <a href="mailto:bachjawo11@gmail.com" class="btn">Send Email</a>
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    © 2026 Samba | Web Developer
-  </footer>
+  <footer>© 2026 Samba | Web Developer</footer>
 
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/+2207597080" class="whatsapp-btn" target="_blank">💬</a>
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/+2207597080" class="whatsapp-btn">💬</a>
 
-  <!-- Smooth Scroll Script -->
+  <!-- SCROLL ANIMATION SCRIPT -->
   <script>
-    document.querySelectorAll('nav a, .btn').forEach(link => {
-      link.addEventListener('click', e => {
-        if(link.getAttribute('href').startsWith('#')){
-          e.preventDefault();
-          document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-        }
+    const cards = document.querySelectorAll('.card');
+    const skills = document.querySelectorAll('.skills span');
+
+    function reveal() {
+      const windowHeight = window.innerHeight;
+      cards.forEach(card => {
+        const top = card.getBoundingClientRect().top;
+        if(top < windowHeight - 100) card.classList.add('visible');
       });
-    });
+      skills.forEach(skill => {
+        const top = skill.getBoundingClientRect().top;
+        if(top < windowHeight - 100) skill.classList.add('visible');
+      });
+    }
+
+    window.addEventListener('scroll', reveal);
+    window.addEventListener('load', reveal);
   </script>
 
 </body>
-          </html>
-          /* GENERAL STYLES */
-body {
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-  background: #0f172a;
-  color: white;
-  scroll-behavior: smooth;
-}
-
-/* NAVBAR */
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 15px;
-  background: #020617;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-nav a:hover {
-  color: #38bdf8;
-}
-
-/* BUTTON */
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background: #38bdf8;
-  color: black;
-  border-radius: 5px;
-  text-decoration: none;
-  margin-top: 15px;
-  transition: 0.3s;
-}
-.btn:hover {
-  background: #0ea5e9;
-  color: white;
-}
-
-/* SECTIONS */
-section {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-/* PROJECTS CARDS */
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  max-width: 1000px;
-  margin: auto;
-}
-.card {
-  display: block;
-  background: #1e293b;
-  padding: 20px;
-  border-radius: 15px;
-  transition: 0.4s;
-  text-decoration: none;
-  color: white;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-.card h3 { margin-top: 0; }
-.card:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-  background: #273449;
-}
-
-/* SKILLS */
-.skills span {
-  display: inline-block;
-  background: #38bdf8;
-  color: black;
-  padding: 8px 12px;
-  margin: 5px;
-  border-radius: 5px;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #020617;
-  margin-top: 40px;
-}
-
-/* LINKS */
-a { color: #38bdf8; text-decoration: none; }
-a:hover { color: #0ea5e9; }
-
-/* WhatsApp Floating Button */
-.whatsapp-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  color: white;
-  font-size: 30px;
-  padding: 15px 18px;
-  border-radius: 50%;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  transition: 0.3s;
-  z-index: 1000;
-  text-decoration: none;
-}
-.whatsapp-btn:hover {
-  transform: translateY(-5px);
-  background: #128C7E;
-}
+  </html>
