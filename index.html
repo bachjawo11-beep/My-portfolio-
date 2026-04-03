@@ -1,114 +1,143 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>fst
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Samba | Web Developer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samba | Web Developer</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
 
-<style>
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- HERO / INTRO -->
+  <section id="home">
+    <h1>I Build Modern Websites <span>🚀</span></h1>
+    <p>I help small businesses and individuals create fast, responsive, and professional websites that attract customers and increase sales.</p>
+    <a href="#projects" class="btn"><i class="fas fa-eye"></i> View My Work</a>
+  </section>
+
+  <!-- ABOUT ME -->
+  <section id="about">
+    <h2><i class="fas fa-user"></i> About Me</h2>
+    <p>I'm a motivated web developer from The Gambia, focused on creating clean, responsive, and user-friendly websites. I enjoy learning new technologies and improving my skills every day. My goal is to work on real-world projects and help businesses grow online.</p>
+    <a href="#contact" class="btn"><i class="fas fa-briefcase"></i> Hire Me</a>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+    <div class="projects">
+      <a href="https://bachjawo11-beep.github.io/My-portfolio-/" target="_blank" class="card">
+        <h3><i class="fas fa-laptop-code"></i> Portfolio Website</h3>
+        <p>My personal portfolio showcasing my skills and projects.</p>
+      </a>
+      <a href="#" class="card">
+        <h3><i class="fas fa-calculator"></i> Calculator App</h3>
+        <p>A simple calculator built using HTML, CSS, and JavaScript.</p>
+      </a>
+      <a href="#" class="card">
+        <h3><i class="fas fa-columns"></i> Landing Page</h3>
+        <p>A modern responsive landing page design.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2><i class="fas fa-code"></i> Skills</h2>
+    <div class="skills">
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>JavaScript</span>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2><i class="fas fa-envelope"></i> Contact Me</h2>
+    <p>Email: <a href="mailto:bachjawo11@gmail.com">bachjawo11@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/bachjawo11-beep/My-portfolio" target="_blank">My Portfolio</a></p>
+    <a href="mailto:bachjawo11@gmail.com" class="btn"><i class="fas fa-paper-plane"></i> Send Email</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Samba | Web Developer
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/+2207597080" class="whatsapp-btn" target="_blank">💬</a>
+
+  <!-- Smooth Scroll Script -->
+  <script>
+    document.querySelectorAll('nav a, .btn').forEach(link => {
+      link.addEventListener('click', e => {
+        if(link.getAttribute('href').startsWith('#')){
+          e.preventDefault();
+          document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+          </html>
+          /* GENERAL STYLES */scnd
 body {
-  
-
-<!-- ===================== -->
-<!-- Floating Buttons + Projects Section -->
-<!-- ===================== -->
-
-<!-- 1️⃣ Floating Buttons -->
-<a href="https://wa.me/your-number" class="floating-button whatsapp-button">
-  Chat me on WhatsApp
-</a>
-
-<a href="#projects" class="floating-button work-button">
-  View My Work
-</a>
-
-<!-- 2️⃣ Projects Section -->
-<section id="projects">
-  <h2>My Projects</h2>
-  <div class="project-card">Project 1</div>
-  <div class="project-card">Project 2</div>
-  <div class="project-card">Project 3</div>
-</section>
-
-<!-- ===================== -->
-<!-- 3️⃣ CSS (Add inside <style> in <head> or CSS file) -->
-<!-- ===================== -->
-
-<style>
-/* Smooth scrolling */
-html {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: #0f172a;
+  color: white;
   scroll-behavior: smooth;
 }
 
-/* Floating button common style */
-.floating-button {
-  position: fixed;
-  right: 20px;
-  padding: 12px 20px;
-  border-radius: 50px;
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  transition: background 0.3s, transform 0.3s;
-  z-index: 1000;
+/* NAVBAR */
+nav {
   display: flex;
-  align-items: center;
   justify-content: center;
+  gap: 20px;
+  padding: 15px;
+  background: #020617;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
-
-/* WhatsApp button */
-.whatsapp-button {
-  bottom: 20px;
-  background-color: #25D366; /* WhatsApp green */
-}
-
-.whatsapp-button:hover {
-  background-color: #1DA851;
-}
-
-/* View My Work button */
-.work-button {
-  bottom: 80px; /* above WhatsApp button */
-  background-color: #2563eb; /* blue */
-  animation: bounce 2s infinite;
-}
-
-.work-button:hover {
-  background-color: #1d4ed8;
-  transform: scale(1.1);
-}
-
-/* Bounce animation */
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-/* Projects Section styling */ bdy
-#projects {
-  padding-top: 80px; /* if header covers it */
-  margin-top: -80px; /* offset for fixed header */
-}
-
-.project-card {
-  background: #1e293b;
+nav a {
   color: white;
-  padding: 20px;
-  margin: 10px 0;
-  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
 }
-</style>
-  <section id="hero"> 
-  <div class="hero-content">
-    <h1>I Build Modern Websites 🚀</h1>
-    <p>I help small businesses and individuals create fast, responsive, and professional websites that attract customers and increase sales.</p>
-    <a href="#projects" class="view-work-btn">View My Work</a>
-  </div>
+nav a:hover {
+  color: #38bdf8;
+}
 
-  <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/2207597080" class="whatsapp-btn" target="_blank">💬</a>
-</section>
+/* BUTTON */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #38bdf8;
+  color: black;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 15px;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: #0ea5e9;
+  color: white;
 }
 
 /* SECTIONS */
@@ -117,26 +146,29 @@ section {
   text-align: center;
 }
 
-h2 {
-  margin-bottom: 20px;
-}
-
-/* PROJECTS */
+/* PROJECTS CARDS */
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+  max-width: 1000px;
+  margin: auto;
 }
-
 .card {
+  display: block;
   background: #1e293b;
   padding: 20px;
-  border-radius: 10px;
-  transition: 0.3s;
+  border-radius: 15px;
+  transition: 0.4s;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
-
+.card h3 { margin-top: 0; }
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+  background: #273449;
 }
 
 /* SKILLS */
@@ -156,92 +188,28 @@ footer {
   background: #020617;
   margin-top: 40px;
 }
-</style>
-</head>
 
-<body>
+/* LINKS */
+a { color: #38bdf8; text-decoration: none; }
+a:hover { color: #0ea5e9; }
 
-<!-- NAV -->
-<nav>
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#projects">Projects</a>
-  <a href="#skills">Skills</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<!-- HERO -->
-<section id="home" class="hero">
-  <h1>
-    I Build <span>Modern Websites</span><br>
-    That Help Businesses Grow 🚀
-  </h1>
-
-  <p>
-    I help small businesses and individuals create fast, responsive, 
-    and professional websites that attract customers and increase sales.
-  </p>
-
-  <p style="margin-top:10px; font-size:14px; opacity:0.7;">
-    Available for freelance work 🌍
-  </p>
-</section>
-
-
-<!-- ABOUT -->
-<section id="about">
-  <h2>About Me</h2>
-  <p>
-    I'm a motivated web developer from The Gambia, focused on creating clean, responsive, and user-friendly websites.
-    I enjoy learning new technologies and improving my skills every day. My goal is to become a professional developer
-    and work on real-world projects.
-  </p>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="projects">
-
-    <div class="card">
-      <h3>Portfolio Website</h3>
-      <p>My personal portfolio showcasing my skills and projects.</p>
-    </div>
-
-    <div class="card">
-      <h3>Calculator App</h3>
-      <p>A simple calculator built using HTML, CSS, and JavaScript.</p>
-    </div>
-
-    <div class="card">
-      <h3>Landing Page</h3>
-      <p>A modern responsive landing page design.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="skills">
-    <span>HTML</span>
-    <span>CSS</span>
-    <span>JavaScript</span>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <h2>Contact Me</h2>
-  <p>Email: bachjawo11@gmail.com</p>
-  <p>GitHub: https://github.com/bachjawo11-beep/My-portfolio</p>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 Samba | Web Developer</p>
-</footer>
-
-</body>
-  </html>
+/* WhatsApp Floating Button */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  font-size: 30px;
+  padding: 15px 18px;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: 0.3s;
+  z-index: 1000;
+  text-decoration: none;
+}
+.whatsapp-btn:hover {
+  transform: translateY(-5px);
+  background: #128C7E;
+}
