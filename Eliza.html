@@ -1,0 +1,255 @@
+<!DOCTYPE html> Eliza
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eliza's Kitchen</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #020617;
+  color: white;
+  scroll-behavior: smooth;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px;
+  background: #020617;
+  position: sticky;
+  top: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: gold;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(to right, black, #1e293b);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: gold;
+}
+
+.hero p {
+  opacity: 0.8;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: gold;
+  color: black;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: orange;
+  transform: scale(1.05);
+}
+
+/* SECTION */
+section {
+  padding: 70px 20px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.8s;
+}
+
+section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* MENU */
+.menu {
+  display: grid;
+  gap: 15px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.item {
+  background: #1e293b;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/* GALLERY */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap: 10px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* ORDER */
+form {
+  max-width: 400px;
+  margin: auto;
+  display: grid;
+  gap: 10px;
+}
+
+input, select {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+/* CONTACT */
+.contact {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: auto;
+}
+
+/* WHATSAPP */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  padding: 15px;
+  border-radius: 50%;
+  text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<a href="#home">Home</a>
+<a href="#menu">Menu</a>
+<a href="#gallery">Gallery</a>
+<a href="#order">Order</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+<h1>Eliza's Kitchen 🍽️</h1>
+<p>Delicious Meals Made With Love 💖</p>
+<a href="#order" class="btn">Order Now</a>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+<h2>Our Menu</h2>
+
+<div class="menu">
+<div class="item">Jollof Rice - $5</div>
+<div class="item">Chicken & Fries - $6</div>
+<div class="item">Grilled Fish - $7</div>
+<div class="item">Burger & Drink - $5</div>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+<h2>Our Dishes</h2>
+
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1604908176997-4317fbd3c1c3" />
+<img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" />
+<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" />
+</div>
+</section>
+
+<!-- ORDER -->
+<section id="order">
+<h2>Place Your Order</h2>
+
+<form onsubmit="orderWhatsApp(event)">
+<input type="text" id="name" placeholder="Your Name" required>
+
+<select id="food">
+<option>Jollof Rice</option>
+<option>Chicken & Fries</option>
+<option>Grilled Fish</option>
+<option>Burger & Drink</option>
+</select>
+
+<input type="text" id="location" placeholder="Delivery Location" required>
+
+<button class="btn">Order on WhatsApp</button>
+</form>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Contact</h2>
+
+<div class="contact">
+<p>Call/WhatsApp: +2207597080</p>
+
+<iframe src="https://maps.google.com/maps?q=gambia&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</div>
+</section>
+
+<a href="https://wa.me/2207597080" class="whatsapp">💬</a>
+
+<script>
+// animation
+const sections = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("active");
+    }
+  });
+});
+
+sections.forEach(section => observer.observe(section));
+
+// order function
+function orderWhatsApp(e){
+  e.preventDefault();
+
+  let name = document.getElementById("name").value;
+  let food = document.getElementById("food").value;
+  let location = document.getElementById("location").value;
+
+  let message = `Hello, my name is ${name}. I want to order ${food}. Delivery location: ${location}.`;
+
+  let url = "https://wa.me/2207597080?text=" + encodeURIComponent(message);
+
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+  </html>
