@@ -1,0 +1,326 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samba | Web Developer</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #020617;
+  color: white;
+  scroll-behavior: smooth;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px;
+  background: rgba(2,6,23,0.9);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #38bdf8;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: radial-gradient(circle, #0ea5e9, #020617);
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: auto;
+  opacity: 0.9;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  margin: 10px;
+  background: #38bdf8;
+  color: black;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #0ea5e9;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* SECTIONS */
+section {
+  padding: 70px 20px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+/* Fade in active */
+section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* CARDS */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.card {
+  background: #0f172a;
+  padding: 20px;
+  border-radius: 15px;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  text-decoration: none;
+  color: white;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+  background: #1e293b;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+/* SKILLS */
+.skills span {
+  display: inline-block;
+  margin: 5px;
+  padding: 8px 15px;
+  background: #38bdf8;
+  color: black;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.skills span:hover {
+  transform: scale(1.1);
+}
+
+/* TESTIMONIAL */
+.testimonial {
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* CONTACT */
+.contact-box {
+  background: #0f172a;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: auto;
+}
+
+/* FOOTER */
+footer {
+  padding: 20px;
+  background: #020617;
+}
+
+/* FLOATING WHATSAPP BUTTON */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  padding: 15px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 25px;
+  z-index: 1000;
+}
+
+/* FLOATING HIRE ME BUTTON */
+.hire-me {
+  position: fixed;
+  bottom: 90px; /* above WhatsApp */
+  right: 20px;
+  background: #38bdf8;
+  color: black;
+  padding: 15px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  transition: all 0.3s;
+  z-index: 1001;
+}
+
+.hire-me:hover {
+  background: #0ea5e9;
+  color: white;
+  transform: translateY(-5px) scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+<h1>I Build Modern Websites 🚀</h1>
+<p>I help businesses grow online with fast, responsive, and professional websites.</p>
+
+<a href="#projects" class="btn">View My Work</a>
+<a href="https://wa.me/2207597080" class="btn">Hire Me</a>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<h2>About Me</h2>
+<p>
+I'm a web developer from The Gambia focused on building clean, responsive, and user-friendly websites that help businesses grow.
+</p>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+<h2>Services</h2>
+
+<div class="grid">
+<div class="card">
+<h3>Website Design</h3>
+<p>Modern and attractive website designs.</p>
+</div>
+
+<div class="card">
+<h3>Responsive Design</h3>
+<p>Websites that work perfectly on mobile and desktop.</p>
+</div>
+
+<div class="card">
+<h3>Website Fix & Speed</h3>
+<p>I fix bugs and improve website performance.</p>
+</div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+<h2>Projects</h2>
+
+<div class="grid">
+
+<a href="https://github.com/yourusername/portfolio" class="card" target="_blank">
+<h3>Portfolio Website</h3>
+<p>My personal portfolio project. (Practice)</p>
+</a>
+
+<a href="https://github.com/yourusername/calculator" class="card" target="_blank">
+<h3>Calculator App</h3>
+<p>Built with HTML, CSS & JavaScript. (Practice)</p>
+</a>
+
+<a href="https://github.com/yourusername/landing-page" class="card" target="_blank">
+<h3>Landing Page</h3>
+<p>Responsive business landing page. (Practice)</p>
+</a>
+
+<a href="https://github.com/yourusername/todo-app" class="card" target="_blank">
+<h3>To-Do App</h3>
+<p>JavaScript project practice. (Coming Soon)</p>
+</a>
+
+<a href="https://github.com/yourusername/weather-app" class="card" target="_blank">
+<h3>Weather App</h3>
+<p>API project practice. (Coming Soon)</p>
+</a>
+
+</div>
+</section>
+
+<!-- SKILLS -->
+<section>
+<h2>Skills</h2>
+
+<div class="skills">
+<span>HTML</span>
+<span>CSS</span>
+<span>JavaScript</span>
+</div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section>
+<h2>What Clients Say</h2>
+<p class="testimonial">"Amazing work! Fast and professional." ⭐⭐⭐⭐⭐</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Contact Me</h2>
+
+<div class="contact-box">
+<p>Email: bachjawo11@gmail.com</p>
+<p>Phone: +2207597080</p>
+
+<a href="mailto:bachjawo11@gmail.com" class="btn">Send Email</a>
+<a href="https://wa.me/2207597080" class="btn">WhatsApp Me</a>
+</div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p>© 2026 Samba | Web Developer</p>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<a href="https://wa.me/2207597080" class="whatsapp">💬</a>
+<a href="https://wa.me/2207597080" class="hire-me">Hire Me</a>
+
+<script>
+// Fade-in sections on scroll
+const sections = document.querySelectorAll('section');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('active');
+    }
+  });
+},{ threshold: 0.2 });
+
+sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
